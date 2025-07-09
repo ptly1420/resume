@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', SimSun, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            background-color: #2c5aa0;
+            color: white;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .section-content {
+            padding: 15px;
+            border-left: 3px solid #2c5aa0;
+        }
+
+        .personal-info {
+            padding: 20px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        .info-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        .info-table .label {
+            background-color: #f8f9fa;
+            width: 80px;
+            font-weight: bold;
+        }
+
+        .work-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .company-position {
+            font-weight: bold;
+            color: #2c5aa0;
+            font-size: 15px;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .work-content h4 {
+            color: #2c5aa0;
+            font-size: 13px;
+            margin: 10px 05px 0;
+            font-weight: bold;
+        }
+
+        .work-content ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .work-content li {
+            margin-bottom: 5px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .highlight-box {
+            background-color: #f0f8ff;
+            border: 1px solid #2c5aa0;
+            padding: 10px;
+            margin: 10px0;
+            border-radius: 3px;
+        }
+
+        .skills-list {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .skills-list strong {
+            color: #2c5aa0;
+        }
+
+        .project-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #2c5aa0;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .project-detail {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .self-eval {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .self-eval strong {
+            color: #2c5aa0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+
+            .work-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"><!-- 个人信息 -->
+        <div class="section">
+            <div class="section-header">个人信息</div>
+            <div class="personal-info">
+                <table class="info-table">
+                    <tr>
+                        <td class="label">姓名</td>
+                        <td>梁勇</td>
+                        <td class="label">性别</td>
+                        <td>男</td>
+                    </tr>
+                    <tr>
+                        <td class="label">联系方式</td>
+                        <td>18474662084</td>
+                        <td class="label">电子邮箱</td>
+                        <td>qingyun1420@gmail.com
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">工作年限</td>
+                        <td>7年</td>
+                        <td class="label">工作地点</td>
+                        <td>广州/长沙</td>
+                    </tr>
+                    <tr>
+                        <td class="label">学历</td>
+                        <td>本科</td>
+                        <td class="label">专业</td>
+                        <td>计算机科学与技术</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!--求职意向-->
+        <div class="section">
+            <div class="section-header">求职意向</div>
+            <div class="section-content">
+                <p><strong>工作性质：</strong>全职</p>
+                <p><strong>目标岗位：</strong>架构师，运维</p>
+                <p><strong>期望薪资：</strong>面议</p>
+                <p><strong>目标行业：</strong>互联网/电子商务，金融，专业服务/教育/培训</p>
+                <p><strong>目标地点：</strong>广州</p>
+                <p><strong>求职时间：</strong>随时到岗</p>
+            </div>
+        </div>
+
+        <!--专业技能-->
+        <div class="section">
+            <div class="section-header">专业技能</div>
+            <div class="section-content">
+                <div class="skills-list">
+                    <p><strong>云平台技术：</strong>阿里云、AWS、Azure、腾讯云，具备多云架构设计和迁移经验</p>
+                    <p><strong>数据库技术：</strong>PolarDB、MySQL、RDS、MongoDB、Redis、PostgreSQL，具备高可用架构设计能力</p>
+                    <p><strong>容器技术：</strong>Docker、Kubernetes，熟练掌握大规模容器集群运维</p>
+                    <p><strong>监控运维：</strong>Prometheus、Grafana、ELK Stack、Zabbix，建设完整监控体系</p>
+                    <p><strong>自动化工具：</strong>Ansible、Terraform、Jenkins、GitLab CI/CD</p>
+                    <p><strong>编程语言：</strong>Python、Shell、Java，具备开发自动化工具能力</p>
+                    <p><strong>操作系统：</strong>Linux(CentOS、Ubuntu)、Windows Server</p>
+                    <p><strong>网络技术：</strong>TCP/IP、HTTP/HTTPS、DNS、负载均衡、CDN</p>
+                    <!-- <p><strong>服务网格：</strong>Istio、Linkerd，微服务治理和流量管理</p>    -->
+                    <p><strong>存储技术：</strong>NFS、对象存储</p>
+                    <p><strong>数据迁移：</strong>DTS、容灾备份、跨云迁移方案设计</p>
+                </div>
+            </div>
+        </div>
+
+        <!--工作经历 -->
+        <div class="section">
+            <div class="section-header">工作经历</div>
+            <div class="section-content">
+                <!-- 新增：阿里巴巴工作经历-->
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="company-position">阿里巴巴国际站云平台 | 数据库SA</div>
+                        <div class="duration">2024.01 - 至今</div>
+                    </div>
+                    <div class="work-content">
+                        <h4>岗位职责：</h4>
+                        <ul>
+                            <li>负责为云平台客户提供数据库架构优化设计咨询服务，涉及阿里云全线数据库产品</li>
+                            <li>主导PolarDB、MySQL、RDS、MongoDB、Redis等数据库产品的架构设计与性能优化</li>
+                            <li>负责DTS数据传输服务的迁移方案设计，提供跨云、跨地域的数据同步解决方案</li>
+                            <li>制定企业级容灾备份策略，设计多活架构和异地灾备方案</li>
+                            <li>为客户提供数据库选型建议、容量规划和成本优化方案</li>
+                        </ul>
+                        <h4>核心成果：</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li>为50+大型企业客户提供数据库架构咨询服务，客户满意度达98%</li>
+                                <li>设计的PolarDB架构方案帮助客户性能提升300%，成本降低40%</li>
+                                <li>主导完成10+个大型数据库迁移项目，涉及PB级数据迁移，零业务中断</li>
+                                <li>建立标准化的容灾备份解决方案，帮助客户实现RPO < 1分钟，RTO <5分钟 </li>
+                                <li>优化Redis集群架构，支撑客户业务QPS从10万提升到100万+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="company-position">广东联通产互（外部） | 云平台运维工程师</div>
+                        <div class="duration">2023.5 - 2024.12</div>
+                    </div>
+                    <div class="work-content">
+                        <h4>岗位职责：</h4>
+                        <ul>
+                            <li>负责Linux服务器集群的部署、配置、监控和维护，管理服务器20+台</li>
+                            <li>参与MySQL、Redis数据库的性能优化、备份恢复和故障处理</li>
+                            <li>参与业务系统的架构设计和技术选型，提供运维层面的技术支持</li>
+                            <li>负责系统安全加固、漏洞修复和安全策略制定</li>
+                        </ul>
+                        <h4>主要成果：</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li>通过自动化脚本优化，日常运维效率提升200%，人工操作错误率降低80%</li>
+                                <li>优化MySQL数据库性能，核心业务系统响应时间缩短60%</li>
+                                <li>建设Zabbix监控系统，监控覆盖率达95%，故障发现时间缩短到5分钟内</li>
+                                <li>制定并执行灾备方案，数据备份成功率达99.9%</li>
+                                <li>系统稳定性显著提升，年度故障时间从72小时降低到12小时</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--爱立信工作经历-->
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="company-position">Ericsson（爱立信） | 云平台架构师</div>
+                        <div class="duration">2021.01 - 2023.5</div>
+                    </div>
+                    <div class="work-content">
+                        <h4>岗位职责：</h4>
+                        <ul>
+                            <li>负责爱立信云原生平台架构设计，支撑5G核心网产品的云化部署</li>
+                            <li>主导Kubernetes容器平台建设，管理大规模容器集群和微服务应用</li>
+                            <li>参与设计并实现电信级高可用架构，确保99.999%的系统可用性</li>
+                            <li>负责云平台的自动化运维体系建设，包括监控、告警、故障自愈</li>
+                            <li>参与OpenStack私有云平台的设计和优化工作</li>
+                        </ul>
+                        <h4>主要成果：</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li>设计并部署支撑电信级应用的K8s集群，管理节点10+，Pod实例100+</li>
+                                <li>建设云原生CI/CD流水线，代码交付效率提升400%，发布成功率95%</li>
+                                <li>优化容器资源调度算法，集群资源利用率提升50%</li>
+                                <li>建设多云管理平台，统一管理AWS、Azure、阿里云等多个云环境</li>
+                                <li>系统可用性达到电信级标准99.999%，年度故障时间控制在5分钟内</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他工作经历-->
+
+
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="company-position">无限极中国公司 | 数据中台运维工程师</div>
+                        <div class="duration">2019.1 - 2020.12</div>
+                    </div>
+                    <div class="work-content">
+                        <h4>岗位职责：</h4>
+                        <ul>
+                            <li>负责Web应用服务器的部署和维护，支撑日活用户100万+的业务系统</li>
+                            <li>参与数据库优化工作，处理MySQL、Oracle 慢查询和性能瓶颈问题</li>
+                            <li>维护CDN、负载均衡等网络基础设施，保障用户访问体验</li>
+                            <li>参与应急响应，处理线上PC、APP、小程序故障和性能问题</li>
+                        </ul>
+                        <h4>主要成果：</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li>优化服务器配置和应用架构，系统并发处理能力提升150%</li>
+                                <li>通过数据库索引优化，核心查询性能提升200%</li>
+                                <li>制定运维规范和流程，团队工作效率提升100%</li>
+                                <li>系统可用性从98.5%提升到99.8%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- 项目经历-->
+        <div class="section">
+            <div class="section-header">项目经历</div>
+            <div class="section-content">
+                <div class="project-item">
+                    <div class="project-title">数据中台云原生架构改造项目</div>
+                    <div class="project-detail"><strong>项目时间：</strong>2019.1 - 2020.12</div>
+                    <div class="project-detail"><strong>项目规模：</strong>支撑用户量1000万+，日订单量100万+，峰值QPS50万+</div>
+                    <div class="project-detail"><strong>技术挑战：</strong>传统单体架构向微服务云原生架构转型，保证业务连续性</div>
+                    <div class="project-detail"><strong>解决方案：</strong></div>
+                    <ul style="margin-left: 20px; font-size:13px;">
+                        <li>基于Kubernetes构建容器化平台，部署300+微服务实例</li>
+                        <li>建设完整的CI/CD流水线，实现日均50次安全发布</li>
+                        <li>设计多环境隔离方案，支持灰度发布和蓝绿部署</li>
+                    </ul>
+                    <div class="project-detail"><strong>项目成果：</strong>系统可用性从96.5%提升至99.95%，发布效率提升300%，资源利用率提升40%</div>
+                </div>
+
+
+                <div class="project-item">
+                    <div class="project-title">企业级监控运维平台建设</div>
+                    <div class="project-detail"><strong>项目时间：</strong>2019.1 - 2020.12</div>
+                    <div class="project-detail"><strong>项目目标：</strong>建设统一的监控运维平台，提升运维效率和系统可观测性</div>
+                    <div class="project-detail"><strong>技术实现：</strong></div>
+                    <ul style="margin-left: 20px; font-size: 13px;">
+                        <li>基于Prometheus+Grafana构建监控体系，覆盖50+服务器</li>
+                        <li>使用ELK Stack建设日志分析平台，日处理日志5TB+</li>
+                        <li>开发自动化运维工具，支持一键部署和批量操作</li>
+                        <li>建设告警中心，支持多渠道告警和故障升级机制</li>
+                    </ul>
+                    <div class="project-detail"><strong>项目成果：</strong>监控覆盖率95%+，故障发现时间从小时级缩短到分钟级，运维效率提升200%</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">金融级数据库高可用架构建设</div>
+                    <div class="project-detail"><strong>项目时间：</strong>2024.01 - 至今</div>
+                    <div class="project-detail"><strong>项目背景：</strong>构建支撑核心交易系统的高可用数据库架构</div>
+                    <div class="project-detail"><strong>技术方案：</strong></div>
+                    <ul style="margin-left: 20px; font-size: 13px;">
+                        <li>设计Polardb 、MySQL、PostgreSql 主从复制+读写分离架构，支撑10万+QPS</li>
+                        <li>实现Redis集群的高可用部署，数据分片和故障切换</li>
+                        <li>建设自动化故障切换机制，RTO控制在30秒内</li>
+                        <li>完善监控告警体系，实现秒级故障发现</li>
+                    </ul>
+                    <div class="project-detail"><strong>项目成果：</strong>数据库可用性达到99.99%，故障恢复时间缩短至分钟级，支撑业务零中断运行</div>
+                </div>
+
+
+
+            </div>
+        </div><!--自我评价 -->
+        <div class="section">
+            <div class="section-header">自我评价</div>
+            <div class="section-content">
+                <div class="self-eval">
+                    <p><strong>技术专长：</strong>7年云平台架构设计与SRE实践经验，擅长大规模分布式系统的稳定性保障与性能优化。具备完整的云原生技术栈实践经验，在系统架构设计、自动化运维、故障处理等方面有深厚积累。
+                    </p>
+                    <p><strong>业务理解：</strong>深度理解互联网高并发业务场景，具备从0到1建设SRE体系的经验，能够在保障系统稳定的同时推动技术创新与效率提升。熟悉金融、电商、电信等行业的技术特点和合规要求。
+                    </p>
+                    <p><strong>团队协作：</strong>具备优秀的跨部门协作能力，能够与产品、开发、测试、安全等团队高效配合，推动复杂技术项目的落地实施。有丰富的技术团队管理经验，善于技术分享和团队建设。
+                    </p>
+                    <p><strong>学习能力：</strong>保持对新技术的敏感度和学习热情，能够快速掌握新的技术栈并在实际项目中应用。具备良好的问题分析和解决能力，能够在高压环境下快速定位和解决系统故障。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
