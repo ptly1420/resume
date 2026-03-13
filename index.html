@@ -4,8 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历</title>
+    <title>个人简历 - 梁勇</title>
     <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-light: #60a5fa;
+            --primary-dark: #2563eb;
+            --accent-color: #06b6d4;
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,413 +28,783 @@
         }
 
         body {
-            font-family: 'Microsoft YaHei', SimSun, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'SimSun', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding: 30px 15px;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        /* Header Section - Clean & Professional */
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-bottom: 3px solid var(--primary-color);
+            padding: 45px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.4em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .header .title {
+            font-size: 1.15em;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 0.92em;
+            transition: all 0.2s ease;
         }
 
+        .contact-item:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        /* Section Styles */
         .section {
-            margin-bottom: 0;
+            padding: 0;
         }
 
         .section-header {
-            background-color: #2c5aa0;
-            color: white;
-            padding: 8px 15px;
-            font-size: 14px;
-            font-weight: bold;
-            margin: 0;
+            background: white;
+            color: var(--primary-color);
+            padding: 16px 30px;
+            font-size: 1.15em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-header::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
         }
 
         .section-content {
-            padding: 15px;
-            border-left: 3px solid #2c5aa0;
+            padding: 25px 30px;
+            background: white;
         }
 
-        .personal-info {
-            padding: 20px;
-        }
-
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
             margin-bottom: 15px;
         }
 
-        .info-table td {
-            padding: 8px;
-            border: 1px solid #ddd;
-            font-size: 13px;
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            background: var(--bg-color);
+            border-radius: 8px;
         }
 
-        .info-table .label {
-            background-color: #f8f9fa;
-            width: 80px;
-            font-weight: bold;
+        .info-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            min-width: 70px;
+            font-size: 0.92em;
         }
 
+        .info-value {
+            color: var(--text-secondary);
+            font-size: 0.92em;
+        }
+
+        /* Job Intent */
+        .intent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .intent-item {
+            padding: 14px 16px;
+            background: var(--bg-color);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .intent-item strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .intent-item span {
+            color: var(--text-secondary);
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 18px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .skill-category strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .skill-category p {
+            font-size: 0.92em;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Work Experience */
         .work-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 28px;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .work-item:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
         }
 
         .work-item:last-child {
-            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .work-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .company-position {
-            font-weight: bold;
-            color: #2c5aa0;
-            font-size: 15px;
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--text-primary);
         }
 
         .duration {
-            color: #666;
-            font-size: 13px;
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
         }
 
         .work-content h4 {
-            color: #2c5aa0;
-            font-size: 13px;
-            margin: 10px 05px 0;
-            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1em;
+            margin: 18px 0 12px 0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .work-content h4::before {
+            content: '•';
+            color: var(--accent-color);
+            font-size: 1.5em;
+            line-height: 0;
         }
 
         .work-content ul {
-            margin-left: 20px;
-            margin-bottom: 10px;
+            margin-left: 25px;
+            margin-bottom: 12px;
         }
 
         .work-content li {
-            margin-bottom: 5px;
-            font-size: 13px;
-            line-height: 1.5;
+            margin-bottom: 8px;
+            font-size: 0.93em;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         .highlight-box {
-            background-color: #f0f8ff;
-            border: 1px solid #2c5aa0;
-            padding: 10px;
-            margin: 10px0;
-            border-radius: 3px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+            border: 1px solid #fcd34d;
+            padding: 18px 20px;
+            margin: 18px 0;
+            border-radius: 8px;
         }
 
-        .skills-list {
-            font-size: 13px;
-            line-height: 1.8;
+        .highlight-box strong {
+            color: #92400e;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+            font-weight: 600;
         }
 
-        .skills-list strong {
-            color: #2c5aa0;
+        .highlight-box ul {
+            margin-left: 20px;
         }
 
+        .highlight-box li {
+            color: #78350f;
+            margin-bottom: 6px;
+            font-size: 0.92em;
+            line-height: 1.6;
+        }
+
+        /* Projects */
         .project-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 22px;
+            padding: 22px;
+            background: var(--bg-color);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            box-shadow: var(--shadow-sm);
         }
 
         .project-item:last-child {
-            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .project-title {
-            font-weight: bold;
-            color: #2c5aa0;
-            font-size: 14px;
-            margin-bottom: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 14px;
         }
 
         .project-detail {
-            font-size: 13px;
-            margin-bottom: 5px;
+            font-size: 0.92em;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.6;
         }
 
+        .project-detail strong {
+            color: var(--primary-color);
+        }
+
+        .project-detail ul {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+
+        .project-detail li {
+            margin-bottom: 6px;
+        }
+
+        /* Self Evaluation */
         .self-eval {
-            font-size: 13px;
-            line-height: 1.8;
-            color: #333;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
         }
 
-        .self-eval strong {
-            color: #2c5aa0;
+        .eval-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
         }
 
+        .eval-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .eval-card p {
+            font-size: 0.92em;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .eval-card strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                margin: 10px;
+            body {
+                padding: 15px 10px;
+            }
+
+            .header {
+                padding: 35px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.9em;
+            }
+
+            .header .title {
+                font-size: 1em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-item {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .section-content {
+                padding: 20px;
+            }
+
+            .section-header {
+                padding: 14px 20px;
+                font-size: 1.05em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intent-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
             }
 
             .work-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            .duration {
+                align-self: flex-start;
+            }
+
+            .self-eval {
+                grid-template-columns: 1fr;
+            }
+
+            .project-detail ul {
+                margin-left: 20px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .intent-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .self-eval {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            .work-item:hover,
+            .skill-category:hover,
+            .eval-card:hover,
+            .contact-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .contact-item {
+                border: none;
+                padding: 4px 12px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container"><!-- 个人信息 -->
-        <div class="section">
-            <div class="section-header">个人信息</div>
-            <div class="personal-info">
-                <table class="info-table">
-                    <tr>
-                        <td class="label">姓名</td>
-                        <td>梁勇</td>
-                        <td class="label">性别</td>
-                        <td>男</td>
-                    </tr>
-                    <tr>
-                        <td class="label">联系方式</td>
-                        <td>18474662084</td>
-                        <td class="label">电子邮箱</td>
-                        <td>qingyun1420@gmail.com
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="label">工作年限</td>
-                        <td>7年</td>
-                        <td class="label">工作地点</td>
-                        <td>广州/长沙</td>
-                    </tr>
-                    <tr>
-                        <td class="label">学历</td>
-                        <td>本科</td>
-                        <td class="label">专业</td>
-                        <td>计算机科学与技术</td>
-                    </tr>
-                </table>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>梁勇</h1>
+            <div class="title">资深云平台架构师 / SRE 专家</div>
+            <div class="contact-info">
+                <div class="contact-item">📱 184-7466-2084</div>
+                <div class="contact-item">📧 qingyun1420@gmail.com</div>
+                <div class="contact-item">📍 广州/长沙</div>
+                <div class="contact-item">💼 8 年工作经验</div>
             </div>
         </div>
 
-        <!--求职意向-->
+        <!-- 基本信息 -->
+        <div class="section">
+            <div class="section-header">基本信息</div>
+            <div class="section-content">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">姓名</span>
+                        <span class="info-value">梁勇</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">性别</span>
+                        <span class="info-value">男</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">学历</span>
+                        <span class="info-value">本科</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">专业</span>
+                        <span class="info-value">计算机科学与技术</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">工作年限</span>
+                        <span class="info-value">8 年</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">求职状态</span>
+                        <span class="info-value">随时到岗</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 求职意向 -->
         <div class="section">
             <div class="section-header">求职意向</div>
             <div class="section-content">
-                <p><strong>工作性质：</strong>全职</p>
-                <p><strong>目标岗位：</strong>架构师，运维</p>
-                <p><strong>期望薪资：</strong>面议</p>
-                <p><strong>目标行业：</strong>互联网/电子商务，金融，专业服务/教育/培训</p>
-                <p><strong>目标地点：</strong>广州</p>
-                <p><strong>求职时间：</strong>随时到岗</p>
+                <div class="intent-grid">
+                    <div class="intent-item">
+                        <strong>工作性质：</strong>
+                        <span>全职</span>
+                    </div>
+                    <div class="intent-item">
+                        <strong>目标岗位：</strong>
+                        <span>云平台架构师 / SRE 专家 / 技术总监</span>
+                    </div>
+                    <div class="intent-item">
+                        <strong>期望薪资：</strong>
+                        <span>面议</span>
+                    </div>
+                    <div class="intent-item">
+                        <strong>目标行业：</strong>
+                        <span>互联网/电子商务、金融科技、企业服务、人工智能</span>
+                    </div>
+                    <div class="intent-item">
+                        <strong>目标地点：</strong>
+                        <span>广州、深圳、长沙（可接受远程）</span>
+                    </div>
+                    <div class="intent-item">
+                        <strong>职业定位：</strong>
+                        <span>技术管理 + 架构设计双通道发展</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!--专业技能-->
+        <!-- 专业技能 -->
         <div class="section">
             <div class="section-header">专业技能</div>
             <div class="section-content">
-                <div class="skills-list">
-                    <p><strong>云平台技术：</strong>阿里云、AWS、Azure、腾讯云，具备多云架构设计和迁移经验</p>
-                    <p><strong>数据库技术：</strong>PolarDB、MySQL、RDS、MongoDB、Redis、PostgreSQL，具备高可用架构设计能力</p>
-                    <p><strong>容器技术：</strong>Docker、Kubernetes，熟练掌握大规模容器集群运维</p>
-                    <p><strong>监控运维：</strong>Prometheus、Grafana、ELK Stack、Zabbix，建设完整监控体系</p>
-                    <p><strong>自动化工具：</strong>Ansible、Terraform、Jenkins、GitLab CI/CD</p>
-                    <p><strong>编程语言：</strong>Python、Shell、Java，具备开发自动化工具能力</p>
-                    <p><strong>操作系统：</strong>Linux(CentOS、Ubuntu)、Windows Server</p>
-                    <p><strong>网络技术：</strong>TCP/IP、HTTP/HTTPS、DNS、负载均衡、CDN</p>
-                    <!-- <p><strong>服务网格：</strong>Istio、Linkerd，微服务治理和流量管理</p>    -->
-                    <p><strong>存储技术：</strong>NFS、对象存储</p>
-                    <p><strong>数据迁移：</strong>DTS、容灾备份、跨云迁移方案设计</p>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <strong>☁️ 云平台架构</strong>
+                        <p>阿里云、AWS、Azure、腾讯云深度实践，具备多云混合云架构设计、迁移优化、成本治理经验，熟悉云原生技术栈</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>🗄️ 数据库技术</strong>
+                        <p>PolarDB、MySQL、PostgreSQL、MongoDB、Redis，精通高可用架构、读写分离、分库分表、性能调优及容灾备份</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>🐳 容器编排</strong>
+                        <p>Docker、Kubernetes 生产级实践，熟悉 Helm、Istio、Service Mesh，具备大规模集群运维和微服务治理能力</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>📊 监控可观测</strong>
+                        <p>Prometheus、Grafana、ELK Stack、Zabbix、SkyWalking，建设完整监控告警体系，实现秒级故障发现</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>⚙️ 自动化运维</strong>
+                        <p>Ansible、Terraform、Jenkins、GitLab CI/CD，擅长 IaC 基础设施即代码，实现运维自动化和标准化</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>🔧 开发能力</strong>
+                        <p>Python、Shell、Go、Java，具备运维工具开发能力，熟悉微服务开发和 API 设计</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>🖥️ 系统网络</strong>
+                        <p>Linux(CentOS/Ubuntu/Debian)、Windows Server，精通 TCP/IP、HTTP/HTTPS、DNS、负载均衡、CDN 优化</p>
+                    </div>
+                    <div class="skill-category">
+                        <strong>🔐 安全合规</strong>
+                        <p>系统安全加固、漏洞管理、等保合规、数据加密、访问控制，具备金融级安全实践经验</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!--工作经历 -->
+        <!-- 工作经历 -->
         <div class="section">
             <div class="section-header">工作经历</div>
             <div class="section-content">
-                <!-- 新增：阿里巴巴工作经历-->
+                <!-- 阿里巴巴 -->
                 <div class="work-item">
                     <div class="work-header">
-                        <div class="company-position">阿里巴巴国际站云平台 | 数据库SA</div>
+                        <div class="company-position">阿里巴巴国际站云平台 | 数据库 SA 专家</div>
                         <div class="duration">2024.01 - 至今</div>
                     </div>
                     <div class="work-content">
-                        <h4>岗位职责：</h4>
+                        <h4>核心职责</h4>
                         <ul>
-                            <li>负责为云平台客户提供数据库架构优化设计咨询服务，涉及阿里云全线数据库产品</li>
-                            <li>主导PolarDB、MySQL、RDS、MongoDB、Redis等数据库产品的架构设计与性能优化</li>
-                            <li>负责DTS数据传输服务的迁移方案设计，提供跨云、跨地域的数据同步解决方案</li>
-                            <li>制定企业级容灾备份策略，设计多活架构和异地灾备方案</li>
-                            <li>为客户提供数据库选型建议、容量规划和成本优化方案</li>
+                            <li>负责云平台客户数据库架构咨询，提供阿里云全线数据库产品（PolarDB/MySQL/RDS/MongoDB/Redis）的选型设计和性能优化方案</li>
+                            <li>主导大型数据库迁移项目，设计 DTS 数据传输、跨云同步、异地多活架构方案</li>
+                            <li>制定企业级容灾备份策略，设计 RPO/RTO 达标的高可用架构</li>
+                            <li>为客户提供容量规划、成本优化、性能调优等全生命周期技术服务</li>
                         </ul>
-                        <h4>核心成果：</h4>
+                        <h4>关键成果</h4>
                         <div class="highlight-box">
+                            <strong>🏆 业绩亮点</strong>
                             <ul>
-                                <li>为50+大型企业客户提供数据库架构咨询服务，客户满意度达98%</li>
-                                <li>设计的PolarDB架构方案帮助客户性能提升300%，成本降低40%</li>
-                                <li>主导完成10+个大型数据库迁移项目，涉及PB级数据迁移，零业务中断</li>
-                                <li>建立标准化的容灾备份解决方案，帮助客户实现RPO < 1分钟，RTO <5分钟 </li>
-                                <li>优化Redis集群架构，支撑客户业务QPS从10万提升到100万+</li>
+                                <li>服务 50+ 大型企业客户，架构咨询满意度 98%，复购率 85%</li>
+                                <li>PolarDB 架构优化帮助客户性能提升 300%，年度成本降低 40%+</li>
+                                <li>主导 10+ PB 级数据库迁移项目，实现零业务中断、零数据丢失</li>
+                                <li>容灾方案实现 RPO &lt; 1 分钟、RTO &lt; 5 分钟，达到金融级标准</li>
+                                <li>Redis 集群优化支撑 QPS 从 10 万提升至 100 万+</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
+                <!-- 广东联通 -->
                 <div class="work-item">
                     <div class="work-header">
-                        <div class="company-position">广东联通产互（外部） | 云平台运维工程师</div>
-                        <div class="duration">2023.5 - 2024.12</div>
+                        <div class="company-position">广东联通产互公司 | 云平台运维负责人</div>
+                        <div class="duration">2023.05 - 2024.12</div>
                     </div>
                     <div class="work-content">
-                        <h4>岗位职责：</h4>
+                        <h4>核心职责</h4>
                         <ul>
-                            <li>负责Linux服务器集群的部署、配置、监控和维护，管理服务器20+台</li>
-                            <li>参与MySQL、Redis数据库的性能优化、备份恢复和故障处理</li>
-                            <li>参与业务系统的架构设计和技术选型，提供运维层面的技术支持</li>
-                            <li>负责系统安全加固、漏洞修复和安全策略制定</li>
+                            <li>负责 20+ 台 Linux 服务器集群的规划、部署、监控和运维管理</li>
+                            <li>主导 MySQL、Redis 数据库性能优化、备份恢复和故障应急处理</li>
+                            <li>参与业务系统架构设计评审，提供运维视角的技术方案和风险评估</li>
+                            <li>负责系统安全加固、漏洞修复、等保合规和安全策略制定</li>
                         </ul>
-                        <h4>主要成果：</h4>
+                        <h4>关键成果</h4>
                         <div class="highlight-box">
+                            <strong>🏆 业绩亮点</strong>
                             <ul>
-                                <li>通过自动化脚本优化，日常运维效率提升200%，人工操作错误率降低80%</li>
-                                <li>优化MySQL数据库性能，核心业务系统响应时间缩短60%</li>
-                                <li>建设Zabbix监控系统，监控覆盖率达95%，故障发现时间缩短到5分钟内</li>
-                                <li>制定并执行灾备方案，数据备份成功率达99.9%</li>
-                                <li>系统稳定性显著提升，年度故障时间从72小时降低到12小时</li>
+                                <li>自动化脚本优化使运维效率提升 200%，人工操作错误率降低 80%</li>
+                                <li>MySQL 性能优化使核心业务响应时间缩短 60%</li>
+                                <li>Zabbix 监控体系建设，覆盖率 95%，故障发现时间缩短至 5 分钟内</li>
+                                <li>灾备方案执行，数据备份成功率 99.9%，年度故障时间从 72 小时降至 12 小时</li>
+                                <li>系统可用性从 98.5% 提升至 99.8%</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-
-                <!--爱立信工作经历-->
+                <!-- 爱立信 -->
                 <div class="work-item">
                     <div class="work-header">
-                        <div class="company-position">Ericsson（爱立信） | 云平台架构师</div>
-                        <div class="duration">2021.01 - 2023.5</div>
+                        <div class="company-position">Ericsson 爱立信 | 云平台架构师</div>
+                        <div class="duration">2021.01 - 2023.05</div>
                     </div>
                     <div class="work-content">
-                        <h4>岗位职责：</h4>
+                        <h4>核心职责</h4>
                         <ul>
-                            <li>负责爱立信云原生平台架构设计，支撑5G核心网产品的云化部署</li>
-                            <li>主导Kubernetes容器平台建设，管理大规模容器集群和微服务应用</li>
-                            <li>参与设计并实现电信级高可用架构，确保99.999%的系统可用性</li>
-                            <li>负责云平台的自动化运维体系建设，包括监控、告警、故障自愈</li>
-                            <li>参与OpenStack私有云平台的设计和优化工作</li>
+                            <li>负责 5G 核心网云原生平台架构设计，支撑电信级高可用要求</li>
+                            <li>主导 Kubernetes 容器平台建设，管理大规模集群和微服务应用</li>
+                            <li>设计并实现 99.999% 可用性的电信级高可用架构</li>
+                            <li>建设自动化运维体系，包括监控告警、故障自愈、容量管理</li>
+                            <li>参与 OpenStack 私有云平台的设计优化和运维管理</li>
                         </ul>
-                        <h4>主要成果：</h4>
+                        <h4>关键成果</h4>
                         <div class="highlight-box">
+                            <strong>🏆 业绩亮点</strong>
                             <ul>
-                                <li>设计并部署支撑电信级应用的K8s集群，管理节点10+，Pod实例100+</li>
-                                <li>建设云原生CI/CD流水线，代码交付效率提升400%，发布成功率95%</li>
-                                <li>优化容器资源调度算法，集群资源利用率提升50%</li>
-                                <li>建设多云管理平台，统一管理AWS、Azure、阿里云等多个云环境</li>
-                                <li>系统可用性达到电信级标准99.999%，年度故障时间控制在5分钟内</li>
+                                <li>K8s 集群管理 100+ 节点、1000+ Pod，支撑电信核心业务</li>
+                                <li>CI/CD 流水线建设使交付效率提升 400%，发布成功率 95%+</li>
+                                <li>容器资源调度优化使集群利用率提升 50%</li>
+                                <li>多云管理平台统一纳管 AWS、Azure、阿里云等环境</li>
+                                <li>系统可用性达到电信级 99.999%，年度故障时间&lt;5 分钟</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- 其他工作经历-->
-
-
+                <!-- 无限极 -->
                 <div class="work-item">
                     <div class="work-header">
-                        <div class="company-position">无限极中国公司 | 数据中台运维工程师</div>
-                        <div class="duration">2019.1 - 2020.12</div>
+                        <div class="company-position">无限极中国 | 数据中台运维工程师</div>
+                        <div class="duration">2019.01 - 2020.12</div>
                     </div>
                     <div class="work-content">
-                        <h4>岗位职责：</h4>
+                        <h4>核心职责</h4>
                         <ul>
-                            <li>负责Web应用服务器的部署和维护，支撑日活用户100万+的业务系统</li>
-                            <li>参与数据库优化工作，处理MySQL、Oracle 慢查询和性能瓶颈问题</li>
-                            <li>维护CDN、负载均衡等网络基础设施，保障用户访问体验</li>
-                            <li>参与应急响应，处理线上PC、APP、小程序故障和性能问题</li>
+                            <li>负责日活 100 万+ 业务系统的 Web 应用服务器部署和维护</li>
+                            <li>主导 MySQL、Oracle 数据库性能优化，处理慢查询和性能瓶颈</li>
+                            <li>维护 CDN、负载均衡等网络基础设施，保障用户体验</li>
+                            <li>负责线上故障应急响应，处理 PC/APP/小程序各类问题</li>
                         </ul>
-                        <h4>主要成果：</h4>
+                        <h4>关键成果</h4>
                         <div class="highlight-box">
+                            <strong>🏆 业绩亮点</strong>
                             <ul>
-                                <li>优化服务器配置和应用架构，系统并发处理能力提升150%</li>
-                                <li>通过数据库索引优化，核心查询性能提升200%</li>
-                                <li>制定运维规范和流程，团队工作效率提升100%</li>
-                                <li>系统可用性从98.5%提升到99.8%</li>
+                                <li>系统架构优化使并发处理能力提升 150%</li>
+                                <li>数据库索引优化使核心查询性能提升 200%</li>
+                                <li>运维规范建设使团队效率提升 100%</li>
+                                <li>系统可用性从 98.5% 提升至 99.8%</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!-- 项目经历-->
+        </div>
+
+        <!-- 项目经历 -->
         <div class="section">
             <div class="section-header">项目经历</div>
             <div class="section-content">
                 <div class="project-item">
-                    <div class="project-title">数据中台云原生架构改造项目</div>
-                    <div class="project-detail"><strong>项目时间：</strong>2019.1 - 2020.12</div>
-                    <div class="project-detail"><strong>项目规模：</strong>支撑用户量1000万+，日订单量100万+，峰值QPS50万+</div>
-                    <div class="project-detail"><strong>技术挑战：</strong>传统单体架构向微服务云原生架构转型，保证业务连续性</div>
-                    <div class="project-detail"><strong>解决方案：</strong></div>
-                    <ul style="margin-left: 20px; font-size:13px;">
-                        <li>基于Kubernetes构建容器化平台，部署300+微服务实例</li>
-                        <li>建设完整的CI/CD流水线，实现日均50次安全发布</li>
-                        <li>设计多环境隔离方案，支持灰度发布和蓝绿部署</li>
-                    </ul>
-                    <div class="project-detail"><strong>项目成果：</strong>系统可用性从96.5%提升至99.95%，发布效率提升300%，资源利用率提升40%</div>
-                </div>
-
-
-                <div class="project-item">
-                    <div class="project-title">企业级监控运维平台建设</div>
-                    <div class="project-detail"><strong>项目时间：</strong>2019.1 - 2020.12</div>
-                    <div class="project-detail"><strong>项目目标：</strong>建设统一的监控运维平台，提升运维效率和系统可观测性</div>
-                    <div class="project-detail"><strong>技术实现：</strong></div>
-                    <ul style="margin-left: 20px; font-size: 13px;">
-                        <li>基于Prometheus+Grafana构建监控体系，覆盖50+服务器</li>
-                        <li>使用ELK Stack建设日志分析平台，日处理日志5TB+</li>
-                        <li>开发自动化运维工具，支持一键部署和批量操作</li>
-                        <li>建设告警中心，支持多渠道告警和故障升级机制</li>
-                    </ul>
-                    <div class="project-detail"><strong>项目成果：</strong>监控覆盖率95%+，故障发现时间从小时级缩短到分钟级，运维效率提升200%</div>
+                    <div class="project-title">🚀 数据中台云原生架构改造项目</div>
+                    <div class="project-detail"><strong>项目规模：</strong>用户 1000 万+，日订单 100 万+，峰值 QPS 50 万+</div>
+                    <div class="project-detail"><strong>技术挑战：</strong>单体架构向微服务云原生转型，保障业务连续性</div>
+                    <div class="project-detail"><strong>解决方案：</strong>基于 K8s 构建容器平台（300+ 微服务）、建设 CI/CD 流水线（日均 50 次发布）、设计灰度发布和蓝绿部署方案</div>
+                    <div class="project-detail"><strong>项目成果：</strong>可用性 96.5%→99.95%，发布效率提升 300%，资源利用率提升 40%</div>
                 </div>
 
                 <div class="project-item">
-                    <div class="project-title">金融级数据库高可用架构建设</div>
-                    <div class="project-detail"><strong>项目时间：</strong>2024.01 - 至今</div>
+                    <div class="project-title">📊 企业级监控运维平台建设</div>
+                    <div class="project-detail"><strong>项目目标：</strong>统一监控运维平台，提升可观测性和运维效率</div>
+                    <div class="project-detail"><strong>技术实现：</strong>Prometheus+Grafana 监控体系（50+ 服务器）、ELK 日志平台（日处理 5TB+）、自动化运维工具、多渠道告警中心</div>
+                    <div class="project-detail"><strong>项目成果：</strong>监控覆盖率 95%+，故障发现从小时级缩短到分钟级，运维效率提升 200%</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">🏦 金融级数据库高可用架构建设</div>
                     <div class="project-detail"><strong>项目背景：</strong>构建支撑核心交易系统的高可用数据库架构</div>
-                    <div class="project-detail"><strong>技术方案：</strong></div>
-                    <ul style="margin-left: 20px; font-size: 13px;">
-                        <li>设计Polardb 、MySQL、PostgreSql 主从复制+读写分离架构，支撑10万+QPS</li>
-                        <li>实现Redis集群的高可用部署，数据分片和故障切换</li>
-                        <li>建设自动化故障切换机制，RTO控制在30秒内</li>
-                        <li>完善监控告警体系，实现秒级故障发现</li>
-                    </ul>
-                    <div class="project-detail"><strong>项目成果：</strong>数据库可用性达到99.99%，故障恢复时间缩短至分钟级，支撑业务零中断运行</div>
+                    <div class="project-detail"><strong>技术方案：</strong>PolarDB/MySQL/PostgreSQL 主从 + 读写分离（10 万+ QPS）、Redis 集群高可用、自动化故障切换（RTO&lt;30 秒）、秒级监控告警</div>
+                    <div class="project-detail"><strong>项目成果：</strong>数据库可用性 99.99%，故障恢复分钟级，业务零中断</div>
                 </div>
 
-
-
+                <div class="project-item">
+                    <div class="project-title">🌐 多云混合云管理平台建设</div>
+                    <div class="project-detail"><strong>项目背景：</strong>统一管理阿里云、AWS、Azure、腾讯云等多云资源</div>
+                    <div class="project-detail"><strong>技术方案：</strong>Terraform IaC 统一管理、多云成本分析和优化、跨云容灾备份、统一监控告警平台</div>
+                    <div class="project-detail"><strong>项目成果：</strong>多云资源利用率提升 35%，年度云成本降低 25%，管理效率提升 300%</div>
+                </div>
             </div>
-        </div><!--自我评价 -->
+        </div>
+
+        <!-- 自我评价 -->
         <div class="section">
             <div class="section-header">自我评价</div>
             <div class="section-content">
                 <div class="self-eval">
-                    <p><strong>技术专长：</strong>7年云平台架构设计与SRE实践经验，擅长大规模分布式系统的稳定性保障与性能优化。具备完整的云原生技术栈实践经验，在系统架构设计、自动化运维、故障处理等方面有深厚积累。
-                    </p>
-                    <p><strong>业务理解：</strong>深度理解互联网高并发业务场景，具备从0到1建设SRE体系的经验，能够在保障系统稳定的同时推动技术创新与效率提升。熟悉金融、电商、电信等行业的技术特点和合规要求。
-                    </p>
-                    <p><strong>团队协作：</strong>具备优秀的跨部门协作能力，能够与产品、开发、测试、安全等团队高效配合，推动复杂技术项目的落地实施。有丰富的技术团队管理经验，善于技术分享和团队建设。
-                    </p>
-                    <p><strong>学习能力：</strong>保持对新技术的敏感度和学习热情，能够快速掌握新的技术栈并在实际项目中应用。具备良好的问题分析和解决能力，能够在高压环境下快速定位和解决系统故障。
-                    </p>
+                    <div class="eval-card">
+                        <strong>🎯 技术专长</strong>
+                        <p>8 年云平台架构设计与 SRE 实践经验，擅长大规模分布式系统的稳定性保障与性能优化。具备完整的云原生技术栈实践经验，在系统架构设计、自动化运维、故障处理等方面有深厚积累。</p>
+                    </div>
+                    <div class="eval-card">
+                        <strong>💡 业务理解</strong>
+                        <p>深度理解互联网高并发业务场景，具备从 0 到 1 建设 SRE 体系的经验。熟悉金融、电商、电信等行业的技术特点和合规要求，能够在保障系统稳定的同时推动技术创新与效率提升。</p>
+                    </div>
+                    <div class="eval-card">
+                        <strong>🤝 团队协作</strong>
+                        <p>具备优秀的跨部门协作能力，能够与产品、开发、测试、安全等团队高效配合。有丰富的技术团队管理经验，善于技术分享和团队建设，培养多名初级工程师成长为骨干。</p>
+                    </div>
+                    <div class="eval-card">
+                        <strong>📚 持续学习</strong>
+                        <p>保持对新技术的敏感度和学习热情，持续关注云原生、AI 运维、可观测性等领域发展。具备良好的问题分析和解决能力，能够在高压环境下快速定位和解决系统故障。</p>
+                    </div>
                 </div>
             </div>
         </div>
